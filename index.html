@@ -3,9 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>offQuiz</title>
+    <title>OFFQuiz</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1> oi </h1>
+    <!-- PAGINA INICIAL -->
+    <section id ="pagina-inicial" class="pagina ativa">
+        <h1> Bem-vindo ao OFFQUIZ </h1>
+        <p>Crie rapidamente seu quiz em poucos passos</p>
+        <p>Faça seu quiz ou sua enquete e rode em lop em um único aparelho</p>
+        <button onclick="IrPara('pagina-quizzes')">Criar</button>
+        <button>Como usar</button>
+    </section>
+
+    <!-- PAGINA DOS "SEUS QUIZES" -->
+    <section id="pagina-quizzes" class="pagina">
+        <h2>Seus Quizzes</h2>
+        <div id="lista-quizzes"></div>
+        <button onclick="IrPara('pagina-criar')">Criar novo quiz</button>
+        <button onclick="IrPara('pagina-inicial')">Voltar</button>
+    </section>
+
+    <!-- PAGINA PARA CRIAR O QUIZ -->
+    <section id="pagina-criar" class="pagina">
+        <h2>Criar Questão</h2>
+        <input type="text" id="pergunta" placeholder="Digite a pergunta">
+        <div id="respostas">
+            <input type="text" placeholder="Resposta 1">
+            <input type="text" placeholder="Resposta 2">
+        </div>
+        <button onclick="adicionarResposta()">Adicionar reposta</button>
+        <button onclick="salvarQuestao()">Salvar questão</button>
+    </section>
+
+    <!-- PAGINA PRA REVISAR O QUIZ -->
+    <section id="pagina-revisao" class="pagina">
+        <h2>Questões</h2>
+        <div id="lista-questoes"></div>
+        <button onclick="irPara('pagina-criar')">Adicionar questões</button>
+        <button onclick="IrPara('pagina-jogar')">Salvar</button>
+    </section>
+
+    <!-- PAGINA PRA JOGAR QUIZ -->
+    <section id="pagina-jogar" class="pagina">
+        <h2>Quiz pronto</h2>
+        <div id="quiz-pronto"></div>
+        <button onclick="IrPara('pagina-inicial')">Voltar</button>
+    </section>
+
+    <script src="script.js"></script>
 </body>
 </html>
