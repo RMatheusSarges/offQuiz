@@ -47,3 +47,49 @@ input {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   text-align: left;
 }
+
+/* Caixa de cada questão */
+.questao-item {
+  background: #ffffff;          
+  padding: 15px;                
+  margin: 10px auto;            
+  border-radius: 10px;          
+  width: 90%;                   
+  max-width: 400px;             
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+  text-align: left;             
+  font-family: Arial, sans-serif;
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Efeito(quando passa o mouse por cima) */
+.questao-item:hover {
+  transform: scale(1.02);
+  background: #f8f8f8;
+}
+
+/* Título da pergunta */
+.questao-item strong {
+  font-size: 16px;
+  color: #333;
+}
+
+/* Respostas listadas */
+.questao-item em {
+  font-size: 14px;
+  color: #666;
+  display: block;
+  margin-top: 5px;
+}
+
+.questao-item ul {
+  list-style-type: disc;   
+  margin: 5px 0 0 20px;   
+  padding: 0;
+}
+
+.questao-item li {
+  font-size: 14px;
+  color: #444;
+  margin: 3px 0;
+}

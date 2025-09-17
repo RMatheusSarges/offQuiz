@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OFFQuiz</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
-    <!-- PAGINA INICIAL -->
+    <!--  1° PAGINA INICIAL -->
     <section id ="pagina-inicial" class="pagina ativa">
         <h1> Bem-vindo ao OFFQUIZ </h1>
         <p>Crie rapidamente seu quiz em poucos passos</p>
@@ -16,7 +16,7 @@
         <button>Como usar</button>
     </section>
 
-    <!-- PAGINA DOS "SEUS QUIZES" -->
+    <!-- 2° PAGINA DOS "SEUS QUIZES" -->
     <section id="pagina-quizzes" class="pagina">
         <h2>Seus Quizzes</h2>
         <div id="lista-quizzes"></div>
@@ -24,7 +24,7 @@
         <button onclick="IrPara('pagina-inicial')">Voltar</button>
     </section>
 
-    <!-- PAGINA PARA CRIAR O QUIZ -->
+    <!-- 3° PAGINA PARA CRIAR O QUIZ -->
     <section id="pagina-criar" class="pagina">
         <h2>Criar Questão</h2>
         <input type="text" id="pergunta" placeholder="Digite a pergunta">
@@ -36,21 +36,23 @@
         <button onclick="salvarQuestao()">Salvar questão</button>
     </section>
 
-    <!-- PAGINA PRA REVISAR O QUIZ -->
+    <!-- 4° PAGINA PRA REVISAR O QUIZ -->
     <section id="pagina-revisao" class="pagina">
         <h2>Questões</h2>
+
         <div id="lista-questoes"></div>
+
         <button onclick="irPara('pagina-criar')">Adicionar questões</button>
         <button onclick="IrPara('pagina-jogar')">Salvar</button>
     </section>
 
-    <!-- PAGINA PRA JOGAR QUIZ -->
+    <!-- 5° PAGINA PRA JOGAR QUIZ -->
     <section id="pagina-jogar" class="pagina">
         <h2>Quiz pronto</h2>
         <div id="quiz-pronto"></div>
         <button onclick="IrPara('pagina-inicial')">Voltar</button>
     </section>
 
-    <script src="script.js"></script>
+    <script src="../js/index.js"></script>
 </body>
 </html>
