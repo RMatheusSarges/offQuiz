@@ -24,17 +24,23 @@
         <button onclick="IrPara('pagina-inicial')">Voltar</button>
     </section>
 
-    <!-- 3° PAGINA PARA CRIAR O QUIZ -->
-    <section id="pagina-criar" class="pagina">
-        <h2>Criar Questão</h2>
-        <input type="text" id="pergunta" placeholder="Digite a pergunta">
-        <div id="respostas">
-            <input type="text" placeholder="Resposta 1">
-            <input type="text" placeholder="Resposta 2">
-        </div>
-        <button onclick="adicionarResposta()">Adicionar reposta</button>
+   <!-- 3° PAGINA PARA CRIAR O QUIZ -->
+<section id="pagina-criar" class="pagina">
+    <h2>Criar Questão</h2>
+    <input type="text" id="pergunta" placeholder="Digite a pergunta">
+
+    <!-- Apenas as respostas ficam aqui -->
+    <div id="respostas">
+        <input type="text" placeholder="Resposta 1">
+        <input type="text" placeholder="Resposta 2">
+    </div>
+
+    <!-- Botões ficam fora -->
+    <div class="botoes-criar">
+        <button onclick="adicionarResposta()">Adicionar resposta</button>
         <button onclick="salvarQuestao()">Salvar questão</button>
-    </section>
+    </div>
+</section>
 
     <!-- 4° PAGINA PRA REVISAR O QUIZ -->
     <section id="pagina-revisao" class="pagina">
@@ -42,8 +48,8 @@
 
         <div id="lista-questoes"></div>
 
-        <button onclick="irPara('pagina-criar')">Adicionar questões</button>
-        <button onclick="IrPara('pagina-jogar')">Salvar</button>
+        <button onclick="IrPara('pagina-criar')">Adicionar questões</button>
+        <button onclick="jogarQuiz()">Salvar</button>
     </section>
 
     <!-- 5° PAGINA PRA JOGAR QUIZ -->
