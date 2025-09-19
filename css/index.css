@@ -1,95 +1,137 @@
-body {
-  font-family: Arial, sans-serif;
+/* Reseta estilos básicos */
+* {
   margin: 0;
   padding: 0;
-  text-align: center;
-  background: #f3f3f3;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
+body {
+  background: #f4f4f9;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Estilo das páginas */
 .pagina {
   display: none;
+  width: 100%;
+  max-width: 500px; 
+  background: white;
   padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .pagina.ativa {
   display: block;
 }
 
+/* Títulos */
+h1, h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Inputs */
+input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+/* Botões */
 button {
-  margin: 10px;
-  padding: 10px 20px;
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
   border: none;
-  background: #222;
+  border-radius: 8px;
+  background: #4CAF50;
   color: white;
-  border-radius: 5px;
+  font-size: 16px;
   cursor: pointer;
+  transition: background 0.2s;
 }
 
 button:hover {
-  background: #444;
+  background: #45a049;
 }
 
-input {
-  display: block;
-  margin: 10px auto;
-  padding: 10px;
-  width: 80%;
-  max-width: 300px;
-}
-
+/* Questões salvas */
 .questao-item {
-  background: #fff;
-  padding: 10px;
-  margin: 10px auto;
-  border-radius: 5px;
-  width: 90%;
-  max-width: 400px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  text-align: left;
+  background: #f9f9f9;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #ddd;
 }
 
-/* Caixa de cada questão */
-.questao-item {
-  background: #ffffff;          
-  padding: 15px;                
-  margin: 10px auto;            
-  border-radius: 10px;          
-  width: 90%;                   
-  max-width: 400px;             
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
-  text-align: left;             
-  font-family: Arial, sans-serif;
-  transition: transform 0.2s ease-in-out;
+/* Responsividade extra */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  .pagina {
+    padding: 15px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  input[type="text"] {
+    font-size: 14px;
+    padding: 10px;
+  }
 }
 
-/* Efeito(quando passa o mouse por cima) */
-.questao-item:hover {
-  transform: scale(1.02);
-  background: #f8f8f8;
+/*  Topo  */
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    background-color: #fff; 
+    border-bottom: 2px solid #ddd;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
 }
 
-/* Título da pergunta */
-.questao-item strong {
-  font-size: 16px;
-  color: #333;
+/* Logo */
+.topo .logo img {
+    height: 25px;  
+    width: auto;
 }
 
-/* Respostas listadas */
-.questao-item em {
-  font-size: 14px;
-  color: #666;
-  display: block;
-  margin-top: 5px;
+/* Menu (☰) */
+.topo .menu {
+    font-size: 28px;
+    cursor: pointer;
+    user-select: none;
 }
 
-.questao-item ul {
-  list-style-type: disc;   
-  margin: 5px 0 0 20px;   
-  padding: 0;
+/* Ajustar o conteúdo da página para não ficar escondido atrás do header fixo */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 
-.questao-item li {
-  font-size: 14px;
-  color: #444;
-  margin: 3px 0;
+.pagina {
+    padding: 80px 20px 20px; /* 80px no topo pra não ficar atrás do header */
+    min-height: 100vh;
+    box-sizing: border-box;
+    text-align: center;
+    margin-top: 65px;
 }
