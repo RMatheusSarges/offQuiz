@@ -7,8 +7,16 @@
     <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
-    <!--  1° PAGINA INICIAL -->
-    <section id ="pagina-inicial" class="pagina ativa">
+    <!-- Topo fixo -->
+    <header class="topo">
+        <div class="logo">
+            <img src ="img/offquiz - Editado.png" alt="OFFQUIZ Logo">
+        </div>
+        <div class="menu">&#9776;</div>
+    </header>
+
+    <!-- 1° PAGINA INICIAL -->
+    <section id="pagina-inicial" class="pagina ativa">
         <h1> Bem-vindo ao OFFQUIZ </h1>
         <p>Crie rapidamente seu quiz em poucos passos</p>
         <p>Faça seu quiz ou sua enquete e rode em lop em um único aparelho</p>
@@ -24,39 +32,34 @@
         <button onclick="IrPara('pagina-inicial')">Voltar</button>
     </section>
 
-  <!-- 3° PAGINA PARA CRIAR O QUIZ -->
+<!-- 3° PAGINA PARA CRIAR O QUIZ -->
 <section id="pagina-criar" class="pagina">
     <h2>Criar Questão</h2>
     <input type="text" id="pergunta" placeholder="Digite a pergunta">
-
-    <!-- respostas ficam só aqui dentro -->
     <div id="respostas">
         <input type="text" placeholder="Resposta 1">
         <input type="text" placeholder="Resposta 2">
     </div>
-
-    <!-- botões fora da div para não sumirem -->
     <button onclick="adicionarResposta()">Adicionar resposta</button>
     <button onclick="salvarQuestao()">Salvar questão</button>
-    <button onclick="IrPara('pagina-revisao')">Ver questões</button>
+    <button onclick="IrPara('pagina-revisao')">Ver Revisão</button>
 </section>
 
-    <!-- 4° PAGINA PRA REVISAR O QUIZ -->
-    <section id="pagina-revisao" class="pagina">
-        <h2>Questões</h2>
+<!-- 4° PAGINA PRA REVISAR O QUIZ -->
+<section id="pagina-revisao" class="pagina">
+    <h2>Questões</h2>
+    <div id="lista-questoes"></div>
+    <button onclick="IrPara('pagina-criar')">Adicionar questões</button>
+    <button onclick="jogarQuiz()">Jogar Quiz</button>
+    <button onclick="IrPara('pagina-inicial')">Voltar</button>
+</section>
 
-        <div id="lista-questoes"></div>
-
-        <button onclick="IrPara('pagina-criar')">Adicionar questões</button>
-        <button onclick="jogarQuiz()">Salvar</button>
-    </section>
-
-    <!-- 5° PAGINA PRA JOGAR QUIZ -->
-    <section id="pagina-jogar" class="pagina">
-        <h2>Quiz pronto</h2>
-        <div id="quiz-pronto"></div>
-        <button onclick="IrPara('pagina-inicial')">Voltar</button>
-    </section>
+<!-- 5° PAGINA PRA JOGAR QUIZ -->
+<section id="pagina-jogar" class="pagina">
+    <h2>Quiz pronto</h2>
+    <div id="quiz-pronto"></div>
+    <button onclick="IrPara('pagina-inicial')">Voltar</button>
+</section>
 
     <script src="../js/index.js"></script>
 </body>
