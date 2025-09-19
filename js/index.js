@@ -1,61 +1,35 @@
 // Armazenar todas as questões do quiz
 let questoes = [];
+let indiceAtual = 0;
 
+// Função para salvar a questão atual
 function salvarQuestao() {
-    // pega o valor da pergunta
     const pergunta = document.getElementById("pergunta").value;
-
-    // pega todos os inputs de resposta
     const respostasInputs = document.querySelectorAll("#respostas input");
     let respostas = [];
+
     respostasInputs.forEach(input => {
         if (input.value.trim() !== "") {
             respostas.push(input.value);
         }
     });
 
-    // cria um objeto com a pergunta e respostas
-    let questao = {
-        pergunta: pergunta,
-        respostas: respostas
-    };
+    if (pergunta.trim() === "" || respostas.length < 2) {
+        alert("Digite uma pergunta e pelo menos duas respostas!");
+        return;
+    }
 
-    // salva no array
+    let questao = { pergunta, respostas };
     questoes.push(questao);
 
-    // limpa os campos para adicionar uma nova questao
     document.getElementById("pergunta").value = "";
-
-    // recria os inputs de respostas dentro da div
-    const divRespostas = document.getElementById("respostas");
-    divRespostas.innerHTML = `
+    document.getElementById("respostas").innerHTML = `
         <input type="text" placeholder="Resposta 1">
         <input type="text" placeholder="Resposta 2">
     `;
 
-    // Ir para página de revisão
     mostrarQuestoes();
     IrPara("pagina-revisao");
-}
-
-// Função para adicionar mais respostas
-function adicionarResposta() {
-    const divRespostas = document.getElementById("respostas");
-    const quantidade = divRespostas.querySelectorAll("input").length + 1;
-
-    // cria um novo input de resposta
-    const novoInput = document.createElement("input");
-    novoInput.type = "text";
-    novoInput.placeholder = "Resposta " + quantidade;
-
-    // adiciona o input na div
-    divRespostas.appendChild(novoInput);
-}
-
-// Função para trocar de página
-function IrPara(idPagina) {
-    document.querySelectorAll(".pagina").forEach(p => p.classList.remove("ativa"));
-    document.getElementById(idPagina).classList.add("ativa");
 }
 
 // Mostrar lista das questões salvas
@@ -76,9 +50,23 @@ function mostrarQuestoes() {
     });
 }
 
-// controlar em qual questão o jogador está
-let indiceAtual = 0;
+// Adicionar resposta extra
+function adicionarResposta() {
+    const divRespostas = document.getElementById("respostas");
+    const quantidade = divRespostas.querySelectorAll("input").length + 1;
+    const novoInput = document.createElement("input");
+    novoInput.type = "text";
+    novoInput.placeholder = "Resposta " + quantidade;
+    divRespostas.appendChild(novoInput);
+}
 
+// Trocar de página
+function IrPara(idPagina) {
+    document.querySelectorAll(".pagina").forEach(p => p.classList.remove("ativa"));
+    document.getElementById(idPagina).classList.add("ativa");
+}
+
+// Jogar Quiz
 function jogarQuiz() {
     indiceAtual = 0;
     mostrarQuestaoAtual();
@@ -86,7 +74,7 @@ function jogarQuiz() {
 }
 
 function mostrarQuestaoAtual() {
-    const container = document.getElementById("quiz-pronto")
+    const container = document.getElementById("quiz-pronto");
     container.innerHTML = "";
 
     if (indiceAtual >= questoes.length) {
@@ -96,12 +84,10 @@ function mostrarQuestaoAtual() {
 
     const questao = questoes[indiceAtual];
 
-    // mostra a pergunta
     const perguntaEl = document.createElement("h3");
     perguntaEl.textContent = questao.pergunta;
     container.appendChild(perguntaEl);
 
-    // mostra as respostas como radios
     questao.respostas.forEach((resp, i) => {
         const label = document.createElement("label");
         label.innerHTML = `
@@ -110,9 +96,8 @@ function mostrarQuestaoAtual() {
         `;
         container.appendChild(label);
         container.appendChild(document.createElement("br"));
-     });
-    
-    // botão próxima
+    });
+
     const botaoProx = document.createElement("button");
     botaoProx.textContent = indiceAtual === questoes.length - 1 ? "Finalizar" : "Próxima";
     botaoProx.onclick = () => {
